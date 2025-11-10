@@ -1,0 +1,29 @@
+[
+  {
+    "Marka": "Audi",
+    "Nomer": "2066-BA7",
+    "kraska": "#25e02b",
+    "datavipuska": 2017,
+    "typeeng": "электро",
+    "narusheniya": 6,
+    "costnarush": 832
+  },
+  {
+    "Marka": "BMW",
+    "Nomer": "8860-KA4",
+    "kraska": "#a4e7c8",
+    "datavipuska": 2000,
+    "typeeng": "бензин",
+    "narusheniya": 8,
+    "costnarush": 759
+  },
+  {
+    "Marka": "Toyota",
+    "Nomer": "7697-YU0",
+    "kraska": "#8065fe",
+    "datavipuska": 2012,
+    "typeeng": "гибрид",
+    "narusheniya": 9,
+    "costnarush": 884
+  }
+]
