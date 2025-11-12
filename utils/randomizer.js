@@ -23,9 +23,9 @@ nomer+=letters[randomint(0,25)];
 nomer+=randomint(0,9);
 return nomer;
 }
-const randfirstobj=()=>{ 
-  if (arrauto.length<3) {
-    let obj={
+const addnewauto=()=>{
+    for (let i = 0; 3 < arrauto.length; i++) {
+      let obj={
       Marka:markauto[randomint(0,5)],
       Nomer:randnomer(),
       kraska:randomColor(),
@@ -34,7 +34,10 @@ const randfirstobj=()=>{
       costnarush:randomint(40,1000),
     }
     arrauto.push(obj);
-  }
+    }
+}
+const randfirstobj=()=>{ 
+  addnewauto();
 for (let i = 0; i <= 2; i++) {
 arrauto[i].Marka=markauto[randomint(0,5)];
 arrauto[i].Nomer=randnomer();
