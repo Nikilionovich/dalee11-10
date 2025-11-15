@@ -24,7 +24,10 @@ nomer+=randomint(0,9);
 return nomer;
 }
 const addnewauto=()=>{
-    for (let i = 0; 3 < arrauto.length; i++) {
+    for (let i = 0;  i < 3 ; i++) {
+      if (arrauto.length==3) {
+        break;
+      }
       let obj={
       Marka:markauto[randomint(0,5)],
       Nomer:randnomer(),
@@ -32,12 +35,16 @@ const addnewauto=()=>{
       datavipuska:randomint(1990,2025),
       typeeng:typeofeng[randomint(0,3)],
       costnarush:randomint(40,1000),
+      photo:""
     }
-    arrauto.push(obj);
+  arrauto.push(obj)
+     fs.writeFileSync(path.join(__dirname,"../data","json","auto.json"),JSON.stringify(arrauto,null,2),"utf-8")
     }
 }
-const randfirstobj=()=>{ 
-  addnewauto();
+const randfirstobj=()=>{
+  if(arrauto.length<3){
+addnewauto();
+  }  
 for (let i = 0; i <= 2; i++) {
 arrauto[i].Marka=markauto[randomint(0,5)];
 arrauto[i].Nomer=randnomer();

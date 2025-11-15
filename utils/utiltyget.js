@@ -2,7 +2,6 @@ const url=require("url")
 const { arrauto } = require("../data/data");
 const filterauto = (req,res) => {
     const {Marka,Nomer,kraska,datavipuska,typeeng,narusheniya}=url.parse(req.url,true).query;
-    console.log(Marka, typeeng);
     let filteredauto = arrauto.filter((item) => {
         if (Marka) {
             if (item.Marka.toLowerCase() == Marka.toLowerCase()) {

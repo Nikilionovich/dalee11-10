@@ -18,7 +18,8 @@ const funcofcreateauto=(data)=>{
     datavipuska,
     typeeng,
     narusheniya,
-    costnarush
+    costnarush,
+    photo:""
  }
  arrauto.push(obj);
  try {

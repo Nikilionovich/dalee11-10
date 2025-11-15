@@ -12,60 +12,67 @@
 
 <body class="text-center d-flex">
   <div class="output-text">
-  <div id="forall">
-    <button id="allcars">вывести все кары</button>
+    <div id="forall">
+      <button id="allcars">вывести все кары</button>
+    </div>
+    <div id="searchofauto">
+      <strong>для поиска</strong><br>
+      <span>введите марку</span><input type="text" id="searchmark"><br>
+      <span>введите номер авто</span> <input type="text" id="searchnomer"><br>
+      <span>введите краску</span> <input type="text" id="searchkraska"><br>
+      <span>введите год выпуска</span> <input type="text" id="searchyearvipusk"><br>
+      <span>введите тип двигателя</span> <input type="text" id="searchtypeeng"><br>
+      <span>введите кол-во Нарушений</span><input type="text" id="searchnarush"><br>
+      <button id="searchauto">найти</button>
+    </div>
+    <div id="createofauto">
+      <strong>для добавления нового авто</strong><br>
+      <span>введите марку</span><input type="text" id="createmark"><br>
+      <span>введите номер авто</span> <input type="text" id="createnomer"><br>
+      <span>введите краску</span> <input type="text" id="createkraska"><br>
+      <span>введите год выпуска</span> <input type="text" id="createyearvipusk"><br>
+      <span>введите тип двигателя</span> <input type="text" id="createtypeeng"><br>
+      <span>введите кол-во Нарушений</span><input type="text" id="createnarush"><br>
+      <span>введите стоимость штрафов</span><input type="text" id="createcostnarush"><br>
+      <button id="createauto">создать</button>
+    </div>
+
+    <div id="deleteauto">
+      <strong>для удаления авто</strong><br>
+      <span>введите марку*</span><input type="text" id="delmark"><br>
+      <span>введите номер авто*</span><input type="text" id="delnomer"><br>
+      <button id="delauto">удалить</button>
+    </div>
+    <div id="raisenarushauto">
+      <strong>для ув.Нарушений авто</strong><br>
+      <span>введите марку*</span><input type="text" id="raisemark"><br>
+      <span>введите номер авто*</span> <input type="text" id="raisenomer"><br>
+      <span>введите кол-во Нарушений чтобы добавить </span><input type="text" id="raisenarush"><br>
+      <span>введите стоимость штрафов чтобы добавить</span><input type="text" id="raisecostnarush"><br>
+      <button id="raisenarushbtn">Увеличить</button>
+    </div>
+    <div id="changeauto">
+      <strong>для внесения изменений авто</strong><br>
+      <span>введите марку*</span><input type="text" id="changemark"><br>
+      <span>введите номер авто*</span> <input type="text" id="changenomer"><br>
+      <span>введите новую марку</span><input type="text" id="change1mark"><br>
+      <span>введите новый номер авто</span> <input type="text" id="change1nomer"><br>
+      <span>введите краску</span> <input type="text" id="changekraska"><br>
+      <span>введите год выпуска</span> <input type="text" id="changeyearvipusk"><br>
+      <span>введите тип двигателя</span> <input type="text" id="changetypeeng"><br>
+      <span>введите кол-во Нарушений</span><input type="text" id="changenarush"><br>
+      <span>введите стоимость штрафов</span><input type="text" id="changecostnarush"><br>
+      <button id="changeOFauto">изменить</button>
+    </div>
   </div>
-  <div id="searchofauto">
-    <strong>для поиска</strong><br>
-    <span>введите марку</span><input type="text" id="searchmark"><br>
-    <span>введите номер авто</span> <input type="text" id="searchnomer"><br>
-    <span>введите краску</span> <input type="text" id="searchkraska"><br>
-    <span>введите год выпуска</span> <input type="text" id="searchyearvipusk"><br>
-    <span>введите тип двигателя</span> <input type="text" id="searchtypeeng"><br>
-    <span>введите кол-во Нарушений</span><input type="text" id="searchnarush"><br>
-    <button id="searchauto">найти</button>
-  </div>
-  <div id="createofauto">
-    <strong>для добавления нового авто</strong><br>
-    <span>введите марку</span>=><input type="text" id="createmark"><br>
-    <span>введите номер авто</span>=> <input type="text" id="createnomer"><br>
-    <span>введите краску</span> =><input type="text" id="createkraska"><br>
-    <span>введите год выпуска</span> =><input type="text" id="createyearvipusk"><br>
-    <span>введите тип двигателя</span> =><input type="text" id="createtypeeng"><br>
-    <span>введите кол-во Нарушений</span>=><input type="text" id="createnarush"><br>
-    <span>введите стоимость штрафов</span>=><input type="text" id="createcostnarush"><br>
-    <button id="createauto">создать</button>
-  </div>
-  
-  <div id="deleteauto">
-    <strong>для удаления авто</strong><br>
-    <span>введите марку*</span>=><input type="text" id="delmark"><br>
-    <span>введите номер авто*</span>=><input type="text" id="delnomer"><br>
-    <button id="delauto">удалить</button>  
-  </div>
-  <div id="raisenarushauto">
-    <strong>для ув.Нарушений авто</strong>
-    <p>введите марку*</p><input type="text"><br>
-    <p>введите номер авто*</p> <input type="text"><br>
-    <p>введите кол-во Нарушений</p><input type="text"><br>
-    <p>введите стоимость штрафов</p><input type="text"><br>
-  </div>
-  <div id="changeauto">
-    <strong>для внесения изменений авто</strong>
-    <p>введите марку*</p><input type="text"><br>
-    <p>введите номер авто*</p> <input type="text"><br>
-    <p>введите краску</p> <input type="text"><br>
-    <p>введите год выпуска</p> <input type="text"><br>
-    <p>введите тип двигателя</p> <input type="text"><br>
-    <p>введите кол-во Нарушений</p><input type="text"><br>
-    <p>введите стоимость штрафов</p><input type="text"><br>
-  </div>
-</div>
-<div id="output-box"></div>
+  <div id="output-box"></div>
   <template id="templatemess">
     <div class="stolen-car-card" data-plate="1234-AB5">
       <div class="photo">
-        <img alt="Фото автомобиля" src="./speed.png" />
+        <img alt="няма фото" id="photoauto" /><br>
+        <input type="text" placeholder="image url pls" id="plainserturl" class="imginp"><br>
+        <button id="insertphoto">sudmit</button>
+        <button id="btndeloneclick">delete auto</button>
       </div>
 
       <div class="info">

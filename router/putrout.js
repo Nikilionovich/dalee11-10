@@ -1,4 +1,4 @@
-const{controllerraisenarush,controlchangesomth}=require("../controller/consrollecar");
+const{controllerraisenarush,controlchangesomth,controlchangephoto}=require("../controller/consrollecar");
 const methodput=(req,res)=>{
      switch (req.url) {
         case "/":
@@ -9,6 +9,9 @@ const methodput=(req,res)=>{
             break;
         case "/adminpage/dump/changesometh":
             controlchangesomth(req,res)
+            break;
+            case "/adminpage/dump/changephoto":
+            controlchangephoto(req,res)
             break;
         default:
             defaulteconroller(req, res);

@@ -1,9 +1,20 @@
+
 allcars.addEventListener("click", () => {
   getreqserver(`/car-violations/All`);
 })
 createauto.addEventListener("click", () => {
   postreqserv(`/adminpage/createauto`);
 })
+raisenarushbtn.addEventListener("click", () => {
+  patchreqserv(`/adminpage/dump/raisenarush`);
+})
+delauto.addEventListener("click", () => {
+  delreqserv(`/adminpage/delauto`);
+})
+changeOFauto.addEventListener("click", () => {
+  putreqserv(`/adminpage/dump/changesometh`);
+})
+
 searchauto.addEventListener("click", () => {
   let reqpath = new URLSearchParams()
   let obj = {
@@ -21,9 +32,6 @@ searchauto.addEventListener("click", () => {
   }
   getreqserver(`/car-violations/filt?${reqpath.toString()}`);
 })
-delauto.addEventListener("click", () => {
-  delreqserv(`/adminpage/delauto`);
-})
 const getreqserver = async (reqpath) => {
   const res = await fetch(reqpath);
   const data = await res.json();
@@ -40,7 +48,7 @@ const postreqserv = async (reqpath) => {
       datavipuska: createyearvipusk.value,
       typeeng: createtypeeng.value,
       narusheniya: createnarush.value,
-      costnarush:createcostnarush.value
+      costnarush: createcostnarush.value
     })
   });
   if (res.ok) {
@@ -48,7 +56,58 @@ const postreqserv = async (reqpath) => {
     await crenderSortedAr(data);
   }
 }
-const delreqserv= async(reqpath)=>{
+const patchreqserv = async (reqpath) => {
+  const res = await fetch(reqpath, {
+    method: "PUT",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({
+      Marka: raisemark.value,
+      Nomer: raisenomer.value,
+      narusheniya: raisenarush.value,
+      costnarush: raisecostnarush.value
+    })
+  });
+  if (res.ok) {
+    const data = await res.json();
+    await crenderSortedAr(data);
+  }
+}
+const putreqserimg = async (reqpath, marka1, nomer1, photo1) => {
+  console.log(marka1, nomer1, "////////", photo1)
+  const res = await fetch(reqpath, {
+    method: "PUT",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({
+      Marka: marka1,
+      Nomer: nomer1,
+      photo: photo1
+    })
+  });
+  if (res.ok) {
+    getreqserver(`/car-violations/All`);
+  }
+}
+const putreqserv = async (reqpath) => {
+  const res = await fetch(reqpath, {
+    method: "PUT",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({
+      Marka: changemark.value,
+      Marka1: change1mark.value,
+      Nomer: changenomer.value,
+      Nomer1: change1nomer.value,
+      kraska: changekraska.value,
+      datavipuska: changeyearvipusk.value,
+      typeeng: changetypeeng.value,
+      narusheniya: changenarush.value,
+      costnarush: changecostnarush.value
+    })
+  });
+  if (res.ok) {
+    alert("Изменено");
+  }
+}
+const delreqserv = async (reqpath) => {
   const res = await fetch(reqpath, {
     method: "DELETE",
     headers: { "Content-type": "application/json" },
@@ -59,8 +118,30 @@ const delreqserv= async(reqpath)=>{
   });
   if (res.ok) {
     alert("Удалено");
+    getreqserver(`/car-violations/All`);
+  }
+  else {
+    alert("Нету такого:(");
   }
 }
+const deloneclickreqserv = async (reqpath, marka1, nomer1) => {
+  const res = await fetch(reqpath, {
+    method: "DELETE",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({
+      Marka: marka1,
+      Nomer: nomer1,
+    })
+  });
+  if (res.ok) {
+    alert("Удалено");
+    getreqserver(`/car-violations/All`);
+  }
+  else {
+    alert("Нету такого:(");
+  }
+}
+
 async function crenderSortedAr(data) {
   const list = document.querySelector("#output-box");
   list.textContent = "";
@@ -80,5 +161,18 @@ const render = (data) => {
   item.querySelector("#typeeng").textContent = data.typeeng;
   item.querySelector("#narush").textContent = data.narusheniya;
   item.querySelector("#costnarush").textContent = data.costnarush;
+  item.querySelector("#photoauto").src = data.photo;
+  item.querySelector("#insertphoto").addEventListener("click", (event) => {
+    const divmoy = event.target.closest(".photo");
+    putreqserimg(`/adminpage/dump/changephoto`,
+      data.Marka,
+      data.Nomer,
+      divmoy.querySelector("#plainserturl").value);
+  })
+  item.querySelector("#btndeloneclick").addEventListener("click", (event) => {
+    deloneclickreqserv(`/adminpage/delauto`,
+      data.Marka,
+      data.Nomer);
+  })
   list.append(item);
 }
