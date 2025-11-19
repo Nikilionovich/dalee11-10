@@ -1,6 +1,6 @@
 const url = require("url")
 const { defaulteconroller } = require("../controller/dafauleteconroller");
-const { controllerfilt, controllerallauto } = require("../controller/consrollecar");
+const { controllerfilt, controllerallauto ,conrolldownload,controllerdownloadsearch} = require("../controller/consrollecar");
 const methodget = (req, res) => {
     const parsedname = url.parse(req.url, true);
     switch (parsedname.pathname) {
@@ -14,8 +14,14 @@ const methodget = (req, res) => {
         case "/car-violations/filt":
             controllerfilt(req, res);
             break;
+        case"/adminpage/dump/download":
+        conrolldownload(req,res);
+        break;
+        case"/adminpage/dump/downloadsearch":
+        controllerdownloadsearch(req,res);
+        break;
         default:
-            defaulteconroller(req, res)
+            defaulteconroller(req, res);
             break;
     }
 }

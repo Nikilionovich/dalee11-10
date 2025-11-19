@@ -14,7 +14,22 @@ delauto.addEventListener("click", () => {
 changeOFauto.addEventListener("click", () => {
   putreqserv(`/adminpage/dump/changesometh`);
 })
-
+downloadbtn.addEventListener("click",()=>{
+  const a=document.createElement("a");
+  a.href="/adminpage/dump/download";
+  a.download="auto.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+});
+downloadbtnsearch.addEventListener("click",()=>{
+  const a=document.createElement("a");
+  a.href="/adminpage/dump/downloadsearch";
+  a.download="filteredauto.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+})
 searchauto.addEventListener("click", () => {
   let reqpath = new URLSearchParams()
   let obj = {

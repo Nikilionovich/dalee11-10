@@ -1,9 +1,11 @@
 const url = require("url");
+const fs=require("fs")
 const { funcofcreateauto } = require("../utils/utilitypost");
 const { arrauto } = require("../data/data");
 const { filterauto} = require("../utils/utiltyget");
 const { funcofdelauto } = require("../utils/utilitydel");
 const { changenarush, changesometh,changephoto } = require("../utils/utilityput");
+const path = require("path");
 
 const controllerallauto = (req, res) => {
     const myarrauto = arrauto;
@@ -12,6 +14,7 @@ const controllerallauto = (req, res) => {
 }
 const controllerfilt = (req, res) => {
     const filteredarr = filterauto(req, res);
+    fs.writeFileSync(path.join(__dirname,"../data","json","filteredauto.json"),JSON.stringify(filteredarr,null,2),"utf-8");
     res.writeHead(200, { "Content-type": "application/json" });
     res.end(JSON.stringify(filteredarr))
 }
@@ -98,4 +101,16 @@ const controlchangephoto=(req,res)=>{
     }
     })
 }
-module.exports = { controllerallauto, controllerfilt, conrolcreate, controlldeleteauto, controllerraisenarush, controlchangesomth,controlchangephoto };
+const conrolldownload=(req,res)=>{
+    let filepath=path.join(__dirname,"../data","json","auto.json");
+    res.writeHead(200,{"Content-type":"application/json",
+"Content-Disposition":"attachment; filename=auto.json"});
+fs.createReadStream(filepath).pipe(res);
+}
+const controllerdownloadsearch=(req,res)=>{
+    let filepath=path.join(__dirname,"../data","json","filteredauto.json");
+    res.writeHead(200,{"Content-type":"application/json",
+"Content-Disposition":"attachment; filename=filteredauto.json"});
+fs.createReadStream(filepath).pipe(res);
+}
+module.exports = { controllerallauto, controllerfilt, conrolcreate, controlldeleteauto, controllerraisenarush, controlchangesomth,controlchangephoto,conrolldownload,controllerdownloadsearch };
